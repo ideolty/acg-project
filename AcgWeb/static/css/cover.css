@@ -227,3 +227,17 @@ li.has-sub-menu:hover .top-menu-item{
 #header-1 #navigation ul li ul li:hover{
     background-color:#e72000
 }
+
+#slider_container {
+    width: 100%;
+}
+
+#slider_wrapper {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0 10px 0 10px;
+}
+
+#slider-1 .info_line a {
+    color: #fff;
+}
