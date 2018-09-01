@@ -32,127 +32,44 @@
     </header>
     <section>
         <div id="content">
-            <article class="hentry">
+            <article class="hentry" v-for="article in articles">
                 <header>
                     <div class="entry-title">
-                        <a href="#">Spring core源码分析</a>
+                        <a href="#">{{article.title}}</a>
                     </div>
                     <div class="entry-meta">
                         <span>发表于</span>
-                        <a href="#"><time>2018年8月24日</time></a>
+                        <a v-bind:href="article.href"><time>{{article.publishTime}}</time></a>
                         <span>
-                            由<span><a href="#">iven</a></span>
+                            由<span><a href="#">{{article.author}}</a></span>
                         </span>
                     </div>
                     <div class="comments-link">
-                        <a href="#">7</a>
+                        <a href="#">{{article.commentsNumber}}</a>
                     </div>
                 </header>
                 <div class="entry-content">
-                    <p><img class="aligncenter" src="static/img/NewBannerBOOTS_2.png"></p>
-                    <p>Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".</p>
+                    <p><img class="aligncenter" v-bind:src="article.contentPictureHref"></p>
+                    <p>{{article.summary}}</p>
                 </div>
                 <footer class="entry-meta">
                     <span class="cat-links">
-				        <span class="entry-utility-prep entry-utility-prep-cat-links">发表在</span> <a href="#" rel="category tag">java</a>			</span>
+				        <span class="entry-utility-prep entry-utility-prep-cat-links">发表在</span> <a href="#" rel="category tag">{{article.topic}}</a></span>
                     <span class="sep"> | </span>
                         <span class="tag-links">
-				            <span class="entry-utility-prep entry-utility-prep-tag-links">标签为</span> <a href="#" rel="tag">Spring</a></span>
+				            <span class="entry-utility-prep entry-utility-prep-tag-links">标签为</span>
+
+                              <template v-for="(tag, index) in article.tag">
+                                  <template v-if="index < (article.tag.length - 1)">
+                                      <a href="#" rel="tag">{{tag}}</a> &
+                                  </template>
+                                  <template v-else>
+                                      <a href="#" rel="tag">{{tag}}</a>
+                                  </template>
+                              </template>
+                        </span>
                         <span class="sep"> | </span>
-                    <span class="comments-link"><a href="#"><b>7</b>条回复</a></span>
-                </footer>
-            </article>
-
-            <article class="hentry">
-                <header>
-                    <div class="entry-title">
-                        <a href="#">Spring core源码分析</a>
-                    </div>
-                    <div class="entry-meta">
-                        <span>发表于</span>
-                        <a href="#"><time>2018年8月24日</time></a>
-                        <span>
-                            由<span><a href="#">iven</a></span>
-                        </span>
-                    </div>
-                    <div class="comments-link">
-                        <a href="#">7</a>
-                    </div>
-                </header>
-                <div class="entry-content">
-                    <p><img class="aligncenter" src="static/img/NewBannerBOOTS_2.png"></p>
-                    <p>Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".</p>
-                </div>
-                <footer class="entry-meta">
-                    <span class="cat-links">
-				        <span class="entry-utility-prep entry-utility-prep-cat-links">发表在</span> <a href="#" rel="category tag">java</a>			</span>
-                    <span class="sep"> | </span>
-                    <span class="tag-links">
-				            <span class="entry-utility-prep entry-utility-prep-tag-links">标签为</span> <a href="#" rel="tag">Spring</a></span>
-                    <span class="sep"> | </span>
-                    <span class="comments-link"><a href="#"><b>7</b>条回复</a></span>
-                </footer>
-            </article>
-
-            <article class="hentry">
-                <header>
-                    <div class="entry-title">
-                        <a href="#">Spring core源码分析</a>
-                    </div>
-                    <div class="entry-meta">
-                        <span>发表于</span>
-                        <a href="#"><time>2018年8月24日</time></a>
-                        <span>
-                            由<span><a href="#">iven</a></span>
-                        </span>
-                    </div>
-                    <div class="comments-link">
-                        <a href="#">7</a>
-                    </div>
-                </header>
-                <div class="entry-content">
-                    <p><img class="aligncenter" src="static/img/NewBannerBOOTS_2.png"></p>
-                    <p>Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".</p>
-                </div>
-                <footer class="entry-meta">
-                    <span class="cat-links">
-				        <span class="entry-utility-prep entry-utility-prep-cat-links">发表在</span> <a href="#" rel="category tag">java</a>			</span>
-                    <span class="sep"> | </span>
-                    <span class="tag-links">
-				            <span class="entry-utility-prep entry-utility-prep-tag-links">标签为</span> <a href="#" rel="tag">Spring</a></span>
-                    <span class="sep"> | </span>
-                    <span class="comments-link"><a href="#"><b>7</b>条回复</a></span>
-                </footer>
-            </article>
-
-            <article class="hentry">
-                <header>
-                    <div class="entry-title">
-                        <a href="#">Spring core源码分析</a>
-                    </div>
-                    <div class="entry-meta">
-                        <span>发表于</span>
-                        <a href="#"><time>2018年8月24日</time></a>
-                        <span>
-                            由<span><a href="#">iven</a></span>
-                        </span>
-                    </div>
-                    <div class="comments-link">
-                        <a href="#">7</a>
-                    </div>
-                </header>
-                <div class="entry-content">
-                    <p><img class="aligncenter" src="static/img/NewBannerBOOTS_2.png"></p>
-                    <p>Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can "just run".</p>
-                </div>
-                <footer class="entry-meta">
-                    <span class="cat-links">
-				        <span class="entry-utility-prep entry-utility-prep-cat-links">发表在</span> <a href="#" rel="category tag">java</a>			</span>
-                    <span class="sep"> | </span>
-                    <span class="tag-links">
-				            <span class="entry-utility-prep entry-utility-prep-tag-links">标签为</span> <a href="#" rel="tag">Spring</a></span>
-                    <span class="sep"> | </span>
-                    <span class="comments-link"><a href="#"><b>7</b>条回复</a></span>
+                    <span class="comments-link"><a href="#"><b>{{article.commentsNumber}}</b>条回复</a></span>
                 </footer>
             </article>
         </div>
@@ -164,6 +81,8 @@
         </div>
     </footer>
 </div>
+
 </body>
+<script type="text/javascript" src="script/vue.js"></script>
 <script type="text/javascript" src="script/index.js"></script>
 </html>
